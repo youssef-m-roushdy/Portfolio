@@ -39,7 +39,7 @@ const Home = () => {
               >
                 Hire Me
               </a>
-              <a className="btn btn-cv" href="" download="../../assets/docs/Youssef-Mahmoud-Roushdy.pdf">
+              <a href="" class="btn btn-cv" download="../../assets/docs/Youssef-Mahmoud-Roushdy.pdf">
                 My Resume
               </a>
             </div>

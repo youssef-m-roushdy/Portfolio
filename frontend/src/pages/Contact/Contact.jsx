@@ -17,7 +17,7 @@ const Contact = () => {
       if (!name || !email || !msg) {
         toast.error("Please fill all fields");
       }
-      const res = await axios.post(`portfolio-backend-seven-kappa.vercel.app/api/v1/portfolio/sendEmail`, {
+      const res = await axios.post(`/api/v1/portfolio/sendEmail`, {
         name,
         email,
         msg,
