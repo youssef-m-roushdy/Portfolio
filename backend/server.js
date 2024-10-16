@@ -14,14 +14,11 @@ app.use(cors());
 app.use(express.json());
 
 //static files
-app.use(express.static(path.join(__dirname, '../frontend/build')))
 
 // Routes
 app.use('/api/v1/portfolio', require('./routes/portfolioRoute'))
 
-app.get('*', function() {
-    resizeBy.sendFile(path.join(__dirname, '../frontend/build/index.html'))
-})
+
 
 // Start the server
 app.listen(PORT, () => {
