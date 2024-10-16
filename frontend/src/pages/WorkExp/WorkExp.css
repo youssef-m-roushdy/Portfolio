@@ -1,0 +1,48 @@
+.work {
+  background-color: #1387812a;
+  padding-left: 200px;
+  margin: 50px 0px;
+}
+
+.work-exp {
+  padding: 60px 0;
+}
+
+.work-exp h2 {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #1e1e2c;
+}
+
+.work-exp hr {
+  color: #138781;
+  max-width: 400px;
+  margin: 10px auto;
+}
+
+.work-exp .vertical-timeline-element-title {
+  color: #138781;
+  font-size: 24px;
+}
+
+.work-exp .vertical-timeline-element-subtitle {
+  color: #1e1e2c;
+  font-size: 18px;
+}
+
+#dark .work-exp h2, #dark .work-exp hr {
+  color: whitesmoke;
+}
+
+
+@media (max-width: 600px) {
+  .work {
+      padding: 0;
+      margin: 0;
+      margin-top: 50px;
+  }
+
+  .work-exp hr {
+    width: 280px;
+  }
+}

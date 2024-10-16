@@ -1,0 +1,126 @@
+.project {
+  padding-left: 200px;
+  margin: 50px 0;
+}
+
+.project hr {
+  color: #138781;
+  max-width: 400px;
+  margin: 10px auto;
+}
+
+.project h2 {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #138781;
+}
+
+#ads {
+  margin: 30px 0 30px 0;
+}
+
+#ads .card-notify-badge {
+  position: absolute;
+  left: -10px;
+  top: -20px;
+  background: #f29f67;
+  text-align: center;
+  border-radius: 30px 30px 30px 30px;
+  color: black;
+  padding: 5px 10px;
+  font-size: 14px;
+}
+
+.project .card img {
+  height: 150px;
+  width: 100%;
+}
+
+.project .card-detail-badge {
+  background: #e0b50f;
+  text-align: center;
+  border-radius: 30px 30px 30px 30px;
+  color: black;
+  padding: 5px 10px;
+  font-size: 14px;
+}
+
+.project .card-image-overly {
+  font-size: 20px;
+}
+
+.project .card-image-overly span {
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.project .card:hover {
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 12px 15px 20px 0px rgba(46, 61, 73, 0.15);
+  transition: all 1s ease;
+}
+
+.project .card {
+  height: 350px;
+}
+
+.ad-btn {
+  text-transform: uppercase;
+  width: 150px;
+  display: block;
+  text-align: center;
+  height: 40px;
+  background-color: #138781;
+  color: white;
+  border-radius: 80px;
+  font-size: 16px;
+  line-height: 35px;
+  text-decoration: none;
+  margin: 20px auto 20px auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.ad-btn:hover {
+  background-color: white;
+  color: #138781;
+  background: transparent;
+  border: 2px solid #138781;
+  transition: all 0.5 ease;
+  box-shadow: 12px 15px 20px 0px rgba(46, 61, 73, 0.15);
+}
+
+#dark .project .card {
+  background: #1e1e2c;
+}
+
+#dark .ad-btn:hover {
+  background-color: white;
+  color: white;
+  background: transparent;
+  border: 2px solid white;
+  transition: all 0.5 ease;
+  box-shadow: 12px 15px 20px 0px rgba(46, 61, 73, 0.15);
+}
+
+#dark .project h2,
+#dark .project hr {
+  color: whitesmoke;
+}
+
+@media (max-width: 600px) {
+  .project {
+    padding: 0;
+    margin: 0;
+    margin-top: 30px;
+  }
+
+  .project hr {
+    width: 280px;
+  }
+
+  .project .card {
+    margin-top: 30px;
+  }
+}

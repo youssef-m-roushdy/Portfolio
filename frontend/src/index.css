@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+img, svg, video, canvas, audio, iframe, embed, object {
+    display: inline-block;
+}
+
+#dark {
+    background-color: #5f264a;
+    color: #f4eee0;
+}
