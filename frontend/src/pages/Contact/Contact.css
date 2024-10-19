@@ -11,7 +11,9 @@
 
 .card2 {
     margin: 0px 40px;
+    width: 450px;
 }
+
 
 .card1 .image{
     /* padding: 30px;
@@ -118,5 +120,9 @@ input:focus, textarea:focus {
     .contact .card2 {
         margin: 0;
 
+    }
+
+    .border-line {
+        border: none;
     }
   }

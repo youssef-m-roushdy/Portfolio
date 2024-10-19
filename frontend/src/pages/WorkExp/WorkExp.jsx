@@ -21,7 +21,7 @@ const WorkExp = ({theme}) => {
             className="vertical-timeline-element--work"
             contentStyle={{ background: `${theme === 'light'? 'white': '#1e1e2c'}`, color: `${theme === 'light'? 'black': 'white'}` }}
             contentArrowStyle={{ borderRight: "7px solid  white" }}
-            date="2022 - 2026"
+            date="2 month trainning"
             iconStyle={{ background: `${theme === 'light'? '#138781': '#1e1e2c'}`, color: "#fff" }}
             icon={<FaReact />}
           >

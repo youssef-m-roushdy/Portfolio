@@ -51,7 +51,7 @@ const Projects = () => {
                 <div className="card-image">
                   <span className="card-notify-badge">FullStack</span>
                   <img
-                    src="https://media.licdn.com/dms/image/D4E12AQHigcsaZVheug/article-cover_image-shrink_720_1280/0/1697208830349?e=2147483647&v=beta&t=mW0Qeq7cNs65qB1tGgNSPVV0eOclugscgmrHk7hsz6c"
+                    src="https://ieor.columbia.edu/sites/default/files/styles/cu_crop/public/content/images/academics-msfe-bsorfe-01.jpg?itok=cXL6NbtO"
                     alt="project1"
                   />
                 </div>

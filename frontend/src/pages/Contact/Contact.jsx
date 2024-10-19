@@ -53,8 +53,8 @@ const Contact = () => {
                   </div>
                 </div>
               </div>
-              <div className="col-md-6 col-lg-6">
-                <div className="card2 d-flex card border-0 px-4 py-5">
+              <div className="col-md-6 col-lg-6 d-flex justify-content-center align-items-center form-contact">
+                <div className="card2  card border-0 px-4 py-5 ">
                   <div className="row">
                     <h6>
                       Contact With{" "}
