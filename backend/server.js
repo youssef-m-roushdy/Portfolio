@@ -30,6 +30,8 @@ app.use(express.json());
 
 
 // Routes
+app.use('/api/v1/auth', authRoutes);
+app.use('/api/v1/projects', projectRoute);
 app.use('/api/v1/email', emailRoute)
 
 
