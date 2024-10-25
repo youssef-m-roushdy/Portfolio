@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
+const mongoose = require('mongoose');
 const emailRoute = require('./routes/emailRoute');
 
 dotenv.config(); // Load environment variables from .env file
@@ -8,6 +9,14 @@ dotenv.config(); // Load environment variables from .env file
 const PORT = process.env.PORT || 8080;
 
 const app = express();
+
+//Database connection
+mongoose.connect('mongodb://localhost:27017/portfolio', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  }).then(() => console.log('MongoDB connected...'))
+    .catch(err => console.log('MongoDB connection error:', err));
+
 
 // Middleware
 app.use(cors({
