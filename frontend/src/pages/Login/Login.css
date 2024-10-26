@@ -1,0 +1,9 @@
+.password {
+    position: relative;
+}
+
+.password .visibility-icon {
+    position: absolute;
+    right: 10px;
+    top: 47px;
+}
