@@ -15,6 +15,22 @@
     width: 150px;
 }
 
+
+.home-container .info-log-reg {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+
+.home-container .log-reg-buttons {
+    display: flex;
+    gap: 5px;
+    padding-top: 80px;
+}
+
+
+ 
 .home-buttons .btn-hire:hover {
     background-color: white;
     color: #3b8ff3;

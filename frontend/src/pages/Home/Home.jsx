@@ -5,6 +5,7 @@ import { useTheme } from "../../context/ThemeContext";
 import { FaMoon, FaSun } from "react-icons/fa";
 import Fade from "react-reveal/Fade";
 import myCv from '../../assets/docs/Youssef-Mahmoud-Roushdy.pdf';
+import { Link } from "react-router-dom";
 //import '../../assets/docs/'
 const Home = () => {
   const [theme, setTheme] = useTheme();
@@ -29,7 +30,14 @@ const Home = () => {
         </div>
         <div className="container home-content">
           <Fade right>
+            <div className="info-log-reg">
             <h1>Hi 👋 I'am a</h1>
+            <div className="log-reg-buttons">
+              <Link className="bg-[#138781] hover:bg-[#064e3b] text-white font-bold py-2 px-4 rounded" to="/register">Sign up</Link>
+              <Link className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" to="/login">Sign in</Link>
+            </div>
+            </div>
+            
             <h2>
               <Typewriter
                 options={{
