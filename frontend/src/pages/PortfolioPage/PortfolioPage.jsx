@@ -21,12 +21,14 @@ const PortfolioPage = () => {
       try {
         const decoded = jwtDecode(token); // Decode the token
         setUser(decoded); // Set user data to state
-        console.log(user)
+        
       } catch (error) {
         console.error("Failed to decode token:", error);
       }
     }
   }, []);
+  
+  console.log(user)
 
     return (
       <>
