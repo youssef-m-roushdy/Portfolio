@@ -62,12 +62,12 @@
 }
 
 .project .card {
-  height: 350px;
+  min-height: 350px;
 }
 
 .ad-btn {
   text-transform: uppercase;
-  width: 150px;
+  max-width: 150px;
   display: block;
   text-align: center;
   height: 40px;

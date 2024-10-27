@@ -27,7 +27,7 @@ const PortfolioPage = () => {
       }
     }
   }, []);
-  
+
   console.log(user)
 
     return (
@@ -39,7 +39,7 @@ const PortfolioPage = () => {
           <About />
           <Education theme={theme}/>
           <TechStack />
-          <Projects user={user}/>
+          <Projects/>
           <WorkExp theme={theme}/>
           <Contact />
         </div>
