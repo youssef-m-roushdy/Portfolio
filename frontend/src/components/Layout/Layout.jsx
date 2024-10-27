@@ -4,7 +4,7 @@ import { AiOutlineDoubleLeft, AiOutlineDoubleRight } from "react-icons/ai";
 import "./Layout.css";
 import Menus from "../Menus/Menus";
 
-const Layout = () => {
+const Layout = ({user, setUser}) => {
   const [toggle, setToggle] = useState(true);
   const handleToggle = () => {
     setToggle(!toggle);
@@ -25,7 +25,7 @@ const Layout = () => {
           <Menus toggle={toggle} />
         </div>
         <div className="container">
-          <Home />
+          <Home user={user} setUser={setUser}/>
         </div>
       </div>
     </>
