@@ -2,11 +2,41 @@ import React, { useEffect, useState } from "react";
 import "./Projects.css";
 import Fade from "react-reveal/Fade";
 import axios from "axios";
+import { jwtDecode } from "jwt-decode";
+import { Link } from "react-router-dom";
 
 const Projects = () => {
   const [projects, setProjects] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState(null);
+
+  const handleDelete = async (projectId) => {
+    try {
+      const token = localStorage.getItem('auth-token');
+      await axios.delete(`${process.env.REACT_APP_API_URL}/api/v1/projects/${projectId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      // Optionally update the projects list after deletion
+      setProjects((prevProjects) => prevProjects.filter((project) => project.id !== projectId));
+    } catch (error) {
+      console.error('Failed to delete', error);
+    }
+  };
+
+  useEffect(() => {
+    const token = localStorage.getItem('auth-token');
+    if (token) {
+      try {
+        const decoded = jwtDecode(token); // Decode the token
+        setUser(decoded); // Set user data to state
+      } catch (error) {
+        console.error("Failed to decode token:", error);
+      }
+    }
+  }, []);
 
   const getProjects = async () => {
     try {
@@ -38,7 +68,9 @@ const Projects = () => {
     <div className="project" id="project">
       <h2 className="col-span-12 mt-3 mb-1 text-center">TOP RECENT PROJECTS</h2>
       <hr />
-      <p className="pb-3 text-center">Here are my projects</p>
+      {user?.isAdmin 
+      ? (<Fade left><Link class="add-prject-btn text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-3 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" to="add-project">Add New Project</Link></Fade>) 
+      : (<p className="pb-3 text-center">"Here are my projects"</p>)}
       <div className="row" id="ads">
         {projects.length > 0 ? (
           projects.map((project, index) => (
@@ -70,6 +102,18 @@ const Projects = () => {
                     >
                       View
                     </a>
+                    {user?.isAdmin && (
+                      <div className="d-flex justify-content-between">
+                        <button
+                          type="button"
+                          className="text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
+                          onClick={() => handleDelete(project.id)}
+                        >
+                          Delete
+                        </button>
+                        <Link class="text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:focus:ring-yellow-900" to="update-project">Update</Link>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>

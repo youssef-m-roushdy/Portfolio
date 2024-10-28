@@ -16,6 +16,7 @@ const Home = ({ user, setUser }) => {
 
   const handleLogout = (e) => {
     e.preventDefault()
+    window.location.reload('/');
     localStorage.removeItem("auth-token");
     setUser(null)
   };
