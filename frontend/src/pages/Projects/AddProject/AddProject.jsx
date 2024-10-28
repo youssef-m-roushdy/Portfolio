@@ -6,10 +6,15 @@ import'./AddProject.css'
 
 const AddProject = () => {
   const [projectData, setProjectData] = useState({
-    title: '',
-    description: '',
+    name: '',
+    image: '',
+    techStacks: [],
+    type: '',
+    link: ''
   });
   const navigate = useNavigate();
+
+  
 
   const handleChange = (e) => {
     setProjectData({ ...projectData, [e.target.name]: e.target.value });
@@ -19,7 +24,7 @@ const AddProject = () => {
     e.preventDefault();
     try {
       const token = localStorage.getItem('token');
-      await axios.post('/api/projects', projectData, {
+      await axios.post(`${process.env.REACT_APP_API_URL}/api/v1/projects`, projectData, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -30,51 +35,88 @@ const AddProject = () => {
     }
   };
 
+  
   return (
-    <div>
-      <h2>Edit Project</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="name"
-          placeholder="Name"
-          value={projectData.name}
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          name="image"
-          placeholder="Image url"
-          value={projectData.image}
-          onChange={handleChange}
-        />
-        
-        <input
-          type="text"
-          name="techStacks"
-          placeholder="Tech Stacks"
-          value={projectData.techStacks}
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          name="techStacks"
-          placeholder="Tech Stacks"
-          value={projectData.techStacks}
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          name="link"
-          placeholder="Link"
-          value={projectData.techStacks}
-          onChange={handleChange}
-        />
-        
-        <button type="submit">Add</button>
-      </form>
-    </div>
-  );
+    <div className="bg-white border border-4 rounded-lg shadow relative m-10">
+
+            <div className="flex items-start justify-between p-5 border-b rounded-t">
+                <h3 className="text-xl font-semibold">
+                    Add New project
+                </h3>
+            </div>
+
+
+            <div className="p-6 space-y-6">
+                <form onSubmit={() => ''}>
+                    <div className="grid grid-cols-6 gap-6">
+                        <div className="col-span-6 sm:col-span-3">
+                            <label htmlFor="product-name" className="text-sm font-medium text-gray-900 block mb-2">Prject Name</label>
+                            <input
+                                type="text"
+                                name="name"
+                                id="name"
+                                className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
+                                placeholder="Project"
+                                required
+                            />
+                        </div>
+                        <div className="col-span-6 sm:col-span-3">
+                            <label htmlFor="category" className="text-sm font-medium text-gray-900 block mb-2">Project Track</label>
+                            <input
+                                type="text"
+                                name="type"
+                                id="type"
+                                className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
+                                placeholder="Type"
+                                required
+                            />
+                        </div>
+                        <div className="col-span-6 sm:col-span-3">
+                            <label htmlFor="brand" className="text-sm font-medium text-gray-900 block mb-2">Project Photo</label>
+                            <input
+                                type="text"
+                                name="image"
+                                id="image"
+                                className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
+                                placeholder="Image URL"
+                                required
+                            />
+                        </div>
+                        <div className="col-span-6 sm:col-span-3">
+                            <label htmlFor="price" className="text-sm font-medium text-gray-900 block mb-2">Link Project</label>
+                            <input
+                                type="text"
+                                name="link"
+                                id="link"
+                                className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
+                                placeholder="Link Source Code"
+                                required
+                            />
+                        </div>
+                        <div className="col-span-full">
+                            <label htmlFor="product-details" className="text-sm font-medium text-gray-900 block mb-2">Tech Stacks</label>
+                            <textarea
+                                id="product-details"
+                                rows="6"
+                                className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-4"
+                                placeholder="Details"
+                            ></textarea>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            {/* Footer */}
+            <div className="p-6 border-t border-gray-200 rounded-b">
+                <button
+                    className="text-white bg-cyan-600 hover:bg-cyan-700 focus:ring-4 focus:ring-cyan-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                    type="submit"
+                >
+                    Add Project
+                </button>
+            </div>
+        </div>
+    );
 };
 
 export default AddProject;
