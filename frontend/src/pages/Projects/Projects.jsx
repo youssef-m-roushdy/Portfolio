@@ -14,13 +14,14 @@ const Projects = () => {
   const handleDelete = async (projectId) => {
     try {
       const token = localStorage.getItem('auth-token');
+      console.log(token)
       await axios.delete(`${process.env.REACT_APP_API_URL}/api/v1/projects/${projectId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
       // Optionally update the projects list after deletion
-      setProjects((prevProjects) => prevProjects.filter((project) => project.id !== projectId));
+      window.location.reload("/")
     } catch (error) {
       console.error('Failed to delete', error);
     }
@@ -107,11 +108,16 @@ const Projects = () => {
                         <button
                           type="button"
                           className="text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
-                          onClick={() => handleDelete(project.id)}
+                          onClick={() => handleDelete(project._id)}
                         >
                           Delete
                         </button>
-                        <Link class="text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:focus:ring-yellow-900" to="update-project">Update</Link>
+                        <Link
+                          className="text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:focus:ring-yellow-900"
+                          to={`/update-project/${project._id}`}
+                        >
+                          Update
+                        </Link>
                       </div>
                     )}
                   </div>

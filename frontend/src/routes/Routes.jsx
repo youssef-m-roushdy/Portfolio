@@ -18,7 +18,7 @@ export const router = createBrowserRouter([
             { path: "login", element: <Login /> },
             { path: "register", element: <Register/> },
             { path: "add-project", element: <AddProject/> },
-            { path: "update-project", element: <UpdateProject/> },
+            { path: "update-project/:projectId", element: <UpdateProject/> },
         ]
     }
 ])
