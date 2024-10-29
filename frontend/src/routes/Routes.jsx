@@ -5,6 +5,9 @@ import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import AddProject from "../pages/Projects/AddProject/AddProject";
 import UpdateProject from "../pages/Projects/UpdateProject/UpdateProject";
+import Hire from "../pages/Hire/Hire";
+import HireDetails from "../pages/Hire/HireDetails/HireDetails";
+import SendHireOffer from "../pages/Hire/SendHireOffer/SendHireOffer";
 
 
 
@@ -19,6 +22,9 @@ export const router = createBrowserRouter([
             { path: "register", element: <Register/> },
             { path: "add-project", element: <AddProject/> },
             { path: "update-project/:projectId", element: <UpdateProject/> },
+            { path: "offer-details/:hireOfferId", element: <HireDetails/> },
+            { path: "send-hiring-offer", element: <SendHireOffer/> },
+            {path: 'hire', element: <Hire/>},
         ]
     }
 ])

@@ -9,7 +9,6 @@ import { Link } from "react-router-dom";
 
 const Home = ({ user, setUser }) => {
   const [theme, setTheme] = useTheme();
-
   const handleTheme = () => {
     setTheme((prevState) => (prevState === "light" ? "dark" : "light"));
   };
@@ -68,14 +67,19 @@ const Home = ({ user, setUser }) => {
         </Fade>
         <Fade bottom>
           <div className="home-buttons">
-            <a
+            {user?.isAdmin
+            ? (<Link
               className="btn btn-hire"
-              href="https://api.whatsapp.com/send?phone=201158729981"
-              rel="noreferrer"
-              target="_blank"
+              to="/hire"
+            >
+              Hire List
+            </Link>) 
+            : (<Link
+              className="btn btn-hire"
+              to="/send-hiring-offer"
             >
               Hire Me
-            </a>
+            </Link>)}
             <a
               className="btn btn-cv"
               href={myCv}
