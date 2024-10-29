@@ -3,8 +3,9 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const authRoutes = require('./routes/authRoutes');
-const projectRoute = require('./routes/projectRoute');
-const emailRoute = require('./routes/emailRoute');
+const projectRoutes = require('./routes/projectRoutes');
+const emailRoutes = require('./routes/emailRoutes');
+const hireRoute = require('./routes/hireRoutes');
 
 dotenv.config(); // Load environment variables from .env file
 
@@ -33,8 +34,9 @@ app.use(express.json());
 
 // Routes
 app.use('/api/v1/auth', authRoutes);
-app.use('/api/v1/projects', projectRoute);
-app.use('/api/v1/email', emailRoute)
+app.use('/api/v1/projects', projectRoutes);
+app.use('/api/v1/email', emailRoutes)
+app.use('/api/v1/hires', hireRoute)
 
 
 
