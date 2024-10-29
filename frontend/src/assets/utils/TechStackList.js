@@ -95,22 +95,22 @@ export const TechStackList = [
     icon: SiMongodb,
   },
   {
-    _id: 15,
+    _id: 16,
     name: ".Net",
     icon: DiDotnet,
   },
   {
-    _id: 16,
+    _id: 17,
     name: "JWT",
     icon: SiJsonwebtokens,
   },
   {
-    _id: 16,
+    _id: 18,
     name: "Docker",
     icon: FaDocker,
   },
   {
-    _id: 16,
+    _id: 19,
     name: "Redis",
     icon: DiRedis,
   },

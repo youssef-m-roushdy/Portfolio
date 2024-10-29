@@ -28,8 +28,6 @@ const PortfolioPage = () => {
     }
   }, []);
 
-  console.log(user)
-
     return (
       <>
       <div id={theme}>

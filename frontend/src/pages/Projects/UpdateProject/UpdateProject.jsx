@@ -15,36 +15,31 @@ const UpdateProject = () => {
 
     
 
-    const fetchProject = async () => {
-        try {
-            const token = localStorage.getItem('auth-token');
-            const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/v1/projects/${projectId}`, {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
-            });
-            const data = res.data.project;
-            console.log(data);
-            // Assuming the response data has the same keys as your state variables
-            setName(data.name);
-            setImage(data.image);
-            setTechStacks(data.techStacks || []); // Ensure techStacks is an array
-            setType(data.type);
-            setLink(data.link);
-            // Log the new name immediately after setting it
-            console.log("Fetched name:", data.name); // This will show the updated name
-        } catch (error) {
-            console.error("Error fetching project:", error);
-        } finally {
-            setLoading(false);
-        }
-    };
-
     useEffect(() => {
+        const fetchProject = async () => {
+            try {
+                const token = localStorage.getItem('auth-token');
+                const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/v1/projects/${projectId}`, {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                });
+                const data = res.data.project;
+                // Assuming the response data has the same keys as your state variables
+                setName(data.name);
+                setImage(data.image);
+                setTechStacks(data.techStacks || []); // Ensure techStacks is an array
+                setType(data.type);
+                setLink(data.link);
+            } catch (error) {
+                console.error("Error fetching project:", error);
+            } finally {
+                setLoading(false);
+            }
+        };
         fetchProject();
     }, [projectId]);
  
-    console.log(name)
     const handleChange = (e) => {
         const { name, value } = e.target;
         if (name === 'techStacks') {

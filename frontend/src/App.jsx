@@ -18,7 +18,6 @@ function App() {
         
         if (payload && payload.exp && isTokenExpired(payload.exp)) {
           localStorage.removeItem("auth-token");
-          window.location.reload("/")
           clearInterval(interval); // Stop checking once the token is removed
           console.log("Token removed due to expiration.");
         }

@@ -14,7 +14,6 @@ const Projects = () => {
   const handleDelete = async (projectId) => {
     try {
       const token = localStorage.getItem('auth-token');
-      console.log(token)
       await axios.delete(`${process.env.REACT_APP_API_URL}/api/v1/projects/${projectId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -44,7 +43,6 @@ const Projects = () => {
       const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/v1/projects`);
       const data = res.data.projects; // Access the 'projects' key in the response
       setProjects(data); // Set projects to the array of projects
-      console.log(data);
     } catch (error) {
       console.error("Error fetching projects:", error);
       setError("Error fetching projects. Please try again later.");

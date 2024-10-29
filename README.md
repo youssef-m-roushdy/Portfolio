@@ -19,12 +19,52 @@
 
 ### Frontend
 
-<img src="https://media.licdn.com/dms/image/D4E12AQGsDp9xrUHXqg/article-cover_image-shrink_600_2000/0/1678346936133?e=2147483647&v=beta&t=XEdhVhurSf2U4HxJDjYzXQaqayNq2wZfueNxGviwRBs" alt="" style="width:600px;height:400px"/>
-<img src="https://localo.com/assets/img/definitions/what-is-bootstrap.webp" alt="" style="width:600px;height:400px"/>
+*  ReactJs
+* Bootstrap
+* TailwindCss
 
 ### Backend
 
-<img src="https://images.ctfassets.net/aq13lwl6616q/7cS8gBoWulxkWNWEm0FspJ/c7eb42dd82e27279307f8b9fc9b136fa/nodejs_cover_photo_smaller_size.png" alt="" style="width:600px;height:400px"/>
-<img src="https://media.licdn.com/dms/image/D5612AQGDoyo0FeCniw/article-cover_image-shrink_720_1280/0/1691585795722?e=2147483647&v=beta&t=rd1TLamS7FFyUnHToGWRB4nS1mEOw7dZ_SrRHihCBdo" alt="" style="width:600px;height:400px"/>
-<img src="https://miro.medium.com/v2/resize:fit:1200/1*QJnvahq_EBdUGjYQUYrhvA.png" alt="" style="width:600px;height:400px"/>
-<img src="https://simpauldesign.com/wp-content/uploads/2020/02/SendGrid-new-logo.png" alt="" style="width:600px;height:400px"/>
+* NodeJs
+* MongoDB
+* ExpressJs
+* JWT
+* SendGrid Email Sender Service
+
+# Install the projects dependancies
+
+<p>After Clone/Download the repo inside portfolio folder open VS Code and splite the terminal</p>
+
+* Terminal 1:
+
+```
+youssef@youssef-System-Product-Name:~/Desktop/Portfolio$ cd backend
+youssef@youssef-System-Product-Name:~/Desktop/Portfolio/backend$ npm install
+```
+
+* Terminal 2:
+
+```
+youssef@youssef-System-Product-Name:~/Desktop/Portfolio$ cd frontend
+youssef@youssef-System-Product-Name:~/Desktop/Portfolio/frontend$ npm install
+```
+
+<p>Then wait till the two project dependancies downloaded</p>
+
+# Run Project
+
+<p>Splite the terminal</p>
+
+* Terminal 1:
+
+```
+youssef@youssef-System-Product-Name:~/Desktop/Portfolio$ cd backend
+youssef@youssef-System-Product-Name:~/Desktop/Portfolio/backend$ npm start
+```
+
+* Terminal 2:
+
+```
+youssef@youssef-System-Product-Name:~/Desktop/Portfolio$ cd frontend
+youssef@youssef-System-Product-Name:~/Desktop/Portfolio/frontend$ npm strat
+```

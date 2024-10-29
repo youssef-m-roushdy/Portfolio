@@ -20,7 +20,7 @@ const TechStack = () => {
         </RubberBand>
         <div className="row">
           {TechStackList.map((tech) => (
-            <Fade left>
+            <Fade left key={tech._id}>
             <div key={tech._id} className="col-md-3">
               <div className="card m-2">
                 <div className="card-content">
