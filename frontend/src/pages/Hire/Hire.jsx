@@ -2,30 +2,71 @@ import React, { useEffect, useState } from 'react';
 import './Hire.css';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const Hire = () => {
     const [hireOffers, setHireOffers] = useState([]);
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
+    const token = localStorage.getItem('auth-token');
 
     useEffect(() => {
+        if (!token) {
+            navigate('/');
+            return;
+        }
+
         const getHireOffers = async () => {
             try {
-                const token = localStorage.getItem('auth-token');
-                if (!token) navigate('/');
-                
+                setLoading(true);
                 const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/v1/hires`, {
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                    },
+                    headers: { Authorization: `Bearer ${token}` },
                 });
                 setHireOffers(res.data.hires || []);
             } catch (error) {
                 console.error("Error fetching hire offers:", error);
-                setHireOffers([]); // Fallback to an empty array on error
+                toast.error("Failed to fetch hire offers.");
+                setHireOffers([]);
+            } finally {
+                setLoading(false);
             }
         };
         getHireOffers();
-    }, [navigate]);
+    }, [navigate, token]);
+
+    const handleAgreeOffer = async (offer) => {
+        try {
+            await axios.post(`${process.env.REACT_APP_API_URL}/api/v1/hires/accept-hire`, {
+                isAccepted: true,
+                email: offer.email,
+                name: offer.name,
+            }, {
+                headers: { Authorization: `Bearer ${token}` },
+            });
+            toast.success("Offer accepted.");
+        } catch (error) {
+            console.error("Error accepting offer:", error);
+            toast.error("Failed to accept offer.");
+        }
+    };
+
+    const handleRefuseOffer = async (offer) => {
+        try {
+            await axios.post(`${process.env.REACT_APP_API_URL}/api/v1/hires/refuse-hire`, {
+                isAccepted: false,
+                email: offer.email,
+                name: offer.name,
+            }, {
+                headers: { Authorization: `Bearer ${token}` },
+            });
+            toast.success("Offer refused.");
+        } catch (error) {
+            console.error("Error refusing offer:", error);
+            toast.error("Failed to refuse offer.");
+        }
+    };
+
+    if (loading) return <p>Loading...</p>;
 
     if (hireOffers.length > 0) {
         return (
@@ -63,8 +104,18 @@ const Hire = () => {
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
                                                 <Link to={`/offer-details/${offer._id}`} className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Details</Link>
-                                                <button type="button" className="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-4 py-2 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Agree</button>
-                                                <button type="button" className="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Refuse</button>
+                                                <button
+                                                    onClick={() => handleAgreeOffer(offer)}
+                                                    className="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-4 py-2 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+                                                >
+                                                    Agree
+                                                </button>
+                                                <button
+                                                    onClick={() => handleRefuseOffer(offer)}
+                                                    className="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
+                                                >
+                                                    Refuse
+                                                </button>
                                             </td>
                                         </tr>
                                     ))}

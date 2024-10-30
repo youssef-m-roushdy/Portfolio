@@ -27,11 +27,10 @@ const SendHireOffer = () => {
         }
       );
       navigate('/')
-      // Optionally, show a success message to the user here
+      console.log(response.data)
     } catch (error) {
       // Handle any error that may occur during the request
       console.log(error)
-      
       // Optionally, display an error message to the user here
     }
   };
