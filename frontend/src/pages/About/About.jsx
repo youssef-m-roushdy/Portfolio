@@ -1,19 +1,21 @@
 import React from "react";
 import "./About.css";
 import Jump from "react-reveal/Jump";
+import portfolioImage from '../../assets/imgs/img.jpeg';
+
 const About = () => {
   return (
     <>
       <Jump>
         <div className="about" id="about">
-          <div className="row">
-            <div className="col-md-6 col-xl-6 col-lg-6 col-xs-12 about-img">
+          <div className="d-flex">
+            <div className="about-img d-flex">
               <img
-                src="https://scontent.fcai19-4.fna.fbcdn.net/v/t39.30808-6/448368607_1524184355200366_753398771143504029_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeGw-2z4yOkLs0zynfa020XbI-btx5R92xQj5u3HlH3bFE3X27wp55_xfGT6DoRd-xPnl7GjsVsRwYKJaAhpPRdU&_nc_ohc=cTpbpMHLfFEQ7kNvgHfUcCN&_nc_zt=23&_nc_ht=scontent.fcai19-4.fna&_nc_gid=A5v6y_NMzFkO5JsDhGiQUMx&oh=00_AYDdSJ8Mq8tDkvQb2yAGbr_98Gd5mRFv23gwVI04VSeu8g&oe=67156087"
+                src={portfolioImage}
                 alt="profile_pic"
               />
             </div>
-            <div className="col-md-6 col-xl-6 col-lg-6 col-xs-12 about-content">
+            <div className=" about-content">
               <h1>About me</h1>
               <p>
                 I am a dedicated software engineer with a strong focus on web
