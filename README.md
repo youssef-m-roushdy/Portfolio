@@ -1,11 +1,3 @@
-# My Portfolio
-<img src="./pic/YMR Portfolio - Personal - Microsoft​ Edge 10_16_2024 1_44_17 PM.png" alt=""/>
-<img src="./pic/YMR Portfolio - Personal - Microsoft​ Edge 10_16_2024 1_44_27 PM.png" alt=""/>
-<img src="./pic/YMR Portfolio - Personal - Microsoft​ Edge 10_16_2024 1_44_34 PM.png" alt=""/>
-<img src="./pic/YMR Portfolio - Personal - Microsoft​ Edge 10_16_2024 1_44_39 PM.png" alt=""/>
-<img src="./pic/YMR Portfolio - Personal - Microsoft​ Edge 10_16_2024 1_44_46 PM.png" alt=""/>
-<img src="./pic/YMR Portfolio - Personal - Microsoft​ Edge 10_16_2024 1_44_51 PM.png" alt=""/>
-
 # Description:
 
 <p>This project is a personal portfolio website designed to showcase my skills, experience, and projects as a software engineer.</p>
@@ -15,7 +7,7 @@
 
 # Architecture Breakdown
 
-## Architecture:
+## Architectures:
 
 ### Frontend
 
