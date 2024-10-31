@@ -23,6 +23,22 @@
 * JWT
 * SendGrid Email Sender Service
 
+# Required Enviroment Variables
+
+## Backend env file
+
+```
+CLIENT_URL=YOUR_FRONTEND_URL
+JWT_SECRET=YOUR_JWT_SECRET_KE
+API_SENDGRID=YOUR_SENGRID_ID
+```
+
+## Backend env file 
+
+```
+REACT_APP_API_URL=YOUR_API_URL
+```
+
 # Install the projects dependancies
 
 <p>After Clone/Download the repo inside portfolio folder open VS Code and splite the terminal</p>
