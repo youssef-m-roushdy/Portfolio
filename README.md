@@ -25,7 +25,7 @@
 
 # Required Enviroment Variables
 
-## Backend env file
+## Fronted env file
 
 ```
 CLIENT_URL=YOUR_FRONTEND_URL
